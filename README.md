@@ -1,2 +1,2 @@
 # web-socket-play
-a sandbox for websocket.io
+a sandbox for socket.io
