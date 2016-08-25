@@ -19,10 +19,16 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 
-    <!-- loads & connects the socket.io-client -->
+    <!-- loads & connects to socket.io-client -->
     <script src='/socket.io/socket.io.js'></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+      $('form').submit(function() {
+        socket.emit('chat message', $('#m').val()); // note: you may send/receive any events you want, any data you want, incl JSON and binary data (may need to be encoded)
+        $('#m').val('');
+        return false; // Q: why r we returning false?
+      });
     </script>
   </body>
 </html>
